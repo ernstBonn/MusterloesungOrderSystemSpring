@@ -4,20 +4,19 @@ import de.neuefische.springordersystem.model.Order;
 import de.neuefische.springordersystem.model.Product;
 import de.neuefische.springordersystem.repo.OrderRepo;
 import de.neuefische.springordersystem.repo.ProductRepo;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
+@RequiredArgsConstructor
 public class ShopService {
+
     private final ProductRepo productRepo;
     private final OrderRepo orderRepo;
 
-    public ShopService(
-            ProductRepo productRepo,
-            OrderRepo orderRepo) {
-        this.productRepo = productRepo;
-        this.orderRepo = orderRepo;
-    }
 
     public Product getProduct(int id) {
         return productRepo.getProduct(id);
